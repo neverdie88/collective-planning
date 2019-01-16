@@ -1,0 +1,45 @@
+# Introduction
+
+
+This repository implements NIPS 2017 Policy Gradient With Value Function Approximation
+For Collective Multiagent Planning (Nguyen et al.) in Tensorflow.
+
+
+```
+@inproceedings{nguyen2017policy,
+  title={Policy gradient with value function approximation for collective multiagent planning},
+  author={Nguyen, Duc Thien and Kumar, Akshat and Lau, Hoong Chuin},
+  booktitle={Advances in Neural Information Processing Systems},
+  pages={4322--4332},
+  year={2017}
+}
+```
+
+
+Our code is based on a2c implementation from the OpenAI Baselines.
+
+## Installation
+
+After downloading the code to <yourdirector> in your local machine, you can run the code by setting python path
+
+```sh
+export PYTHONPATH=<yourdirectory>/collective-planning
+```
+
+
+### Grid Navigation
+
+The example code to run grid navigation problem (in our NIPS17 paper) can be found in
+
+- [Vanilla AC](baselines/a2c/grid_AC.py)
+- [fAfC](baselines/a2c/grid_fAfC.py)
+
+
+Syntax example to learn neural network policy with hidden layers (32x32) for Vanilla AC and fAfC
+
+```sh
+export PYTHONPATH=<yourdirectory>/collective-planning
+cd <yourdirectory>/collective-planning-master/baselines/a2c/
+python grid_AC.py --hidden-unit-num 32 --layer-norm --num-cpu 1 --actor-lr 1e-4 --critic-lr 1e-3
+python grid_fAfC.py --hidden-unit-num 32 --layer-norm --num-cpu 1 --actor-lr 1e-4 --critic-lr 1e-3
+```
